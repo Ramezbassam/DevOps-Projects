@@ -50,15 +50,3 @@ spec:
       targetPort: 8080
       nodePort: 30080
   type: NodePort
----
-apiVersion: v1
-data:
-  token: eW91cl9qZW5raW5zX2FwaV90b2tlbg==
-kind: Secret
-metadata:
-  creationTimestamp: "2025-06-16T22:13:38Z"
-  name: jenkins-token
-  namespace: default
-  resourceVersion: "3088"
-  uid: 7dfb4384-8392-4e54-8402-8a5360a459d8
-type: Opaque

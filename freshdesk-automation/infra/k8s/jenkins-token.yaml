@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+  token: eW91cl9qZW5raW5zX2FwaV90b2tlbg==
+kind: Secret
+metadata:
+  creationTimestamp: "2025-06-16T22:27:55Z"
+  name: jenkins-token
+  namespace: freshdesk-automation
+  resourceVersion: "3892"
+  uid: 6a937def-f642-4306-a896-cd784401d627
+type: Opaque
