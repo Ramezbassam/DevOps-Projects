@@ -1,5 +1,10 @@
 pipeline{
-    agent any
+    agent{
+        docker {
+            image 'python:3.10'
+            args '-v /var/run/docker.sock:/var/run/docker.sock' // To enable Docker inside the container
+        }
+    }
 
     environment {
         DOCKER_IMAGE = 'ramezbassam97/flask-webhook'
