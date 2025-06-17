@@ -1,5 +1,10 @@
 pipeline{
-    agent none
+    agent{
+        docker {
+            image 'python:3.10'
+            args '-v /var/run/docker.sock:/var/run/docker.sock' // To enable Docker inside the container
+        }
+    }
 
     environment {
         DOCKER_IMAGE = 'ramezbassam97/flask-webhook'
@@ -16,11 +21,6 @@ pipeline{
         
         }
         stage("Validate Flask App") { 
-            agent {
-                dockerContainer {
-                    image 'python:3.10'
-                }
-            }
             steps{
                 sh 'python app.py & sleep 5 && pkill -f "python app.py"'
             }
