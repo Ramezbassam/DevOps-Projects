@@ -1,10 +1,11 @@
 pipeline{
-    agent{
+    agent any
+    /*agent{
         dockerContainer {
             image 'python:3.10'
             //args '-v /var/run/docker.sock:/var/run/docker.sock' // To enable Docker inside the container
         }
-    }
+    }*/
 
     environment {
         DOCKER_IMAGE = 'ramezbassam97/flask-webhook'
@@ -19,6 +20,11 @@ pipeline{
                 git branch: 'dev', url: 'https://github.com/Ramezbassam/DevOps-Projects.git'
             }
         
+        }
+        stage('Install Python') {
+            steps {
+                sh 'apt-get update && apt-get install -y python3 python3-pip'
+            }
         }
         stage("Validate Flask App") { 
             steps{
