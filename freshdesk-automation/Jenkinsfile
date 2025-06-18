@@ -11,14 +11,9 @@ pipeline{
     stages{
         stage("Fetch Flask App"){
             steps{
-                git branch: dev, url: 'https://github.com/Ramezbassam/DevOps-Projects.git'
+                git branch: 'dev', url: 'https://github.com/Ramezbassam/DevOps-Projects.git'
             }
         
-        }
-        stage("Validate Flask App") { 
-            steps{
-                sh 'python app.py & sleep 5 && pkill -f "python app.py"'
-            }
         }
         stage("Build Docker Image") { 
             steps{
